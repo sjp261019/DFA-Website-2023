@@ -39,19 +39,19 @@
     <!-- HOME CONTENT -->
     <div class="content">
         <!-- WHITEBOARD -->
-        <div id="whiteboard">
-            <ul class="selector">
-                <li class="selector-item eicon-pen"></li>
-                <li class="selector-item color" id="yellow"></li>
-                <li class="selector-item color" id="green"></li>
-                <li class="selector-item color" id="blue"></li>
-                <li class="selector-item color" id="purple"></li>
-                <li class="selector-item color" id="red"></li>
-                <li class="selector-item color" id="grey"></li>
-            </ul>
-        </div>
-        <!-- MASTHEAD -->
         <div id="masthead" class="bg">
+            <div id="whiteboard">
+                <canvas></canvas>
+                <ul class="selector">
+                    <li class="selector-item eicon-pen" id="pen-tool"></li>
+                    <li class="selector-item color" id="yellow"></li>
+                    <li class="selector-item color" id="green"></li>
+                    <li class="selector-item color" id="blue"></li>
+                    <li class="selector-item color" id="purple"></li>
+                    <li class="selector-item color" id="red"></li>
+                    <li class="selector-item color" id="grey"></li>
+                </ul>
+            </div>
             <div class="intro">
                 <h3 class="outline">RISD X BROWN</h3>
                 <h1 class="title">DESIGN FOR<br><span class="auto-type"></span></h1>
@@ -67,10 +67,10 @@
                         loop: true,
                     });
                 </script>
-                    <h3>TACKLING <span class="outline">SOCIAL CHALLENGES</span> THROUGH <span class="outline">HUMAN-CENTERED DESIGN</span></h3>
+                <h3>TACKLING <span class="outline">SOCIAL CHALLENGES</span> THROUGH <span class="outline">HUMAN-CENTERED DESIGN</span></h3>
                 <!--CHANGE THIS LINE WHEN APPLICATIONS ARE CLOSED-->
                 <h2 class="js-highlight">23-24 STUDIO APPLICATIONS ARE NOW OPEN</h2>
-                <a type="button" class="button" href="#">APPLY NOW →</a>
+                <a type="button" class="button" id="masthead-button" href="#">APPLY NOW →</a>
             </div>
         </div>
         <div class="line-horizontal"></div>
@@ -79,7 +79,7 @@
             <img src="img/photos/2.jpg">
             <div class="wrapper-vertical">
                 <h2 class="body-text">At DFA, our mission is not only to give people the opportunity to explore design thinking and human-centered design, but also to tackle the social challenges they encounter on campus and beyond. <span class="body-text js-highlight">We believe in turning empathy into action to innovate in a way that will actually benefit the community.</span></h2>
-                <a type="button" class="button" href="#">LEARN MORE →</a>
+                <a type="button" class="button" href="about.html">LEARN MORE →</a>
             </div>
         </div>
         <div class="line-horizontal"></div>
@@ -120,7 +120,7 @@
                     </div>
                 </a>
             </div>
-            <a href="#">See more</a>
+            <a href="past_projects.html">SEE MORE</a>
         </div>
         <div class="line-horizontal"></div>
         <!-- OUR PARTNERS -->

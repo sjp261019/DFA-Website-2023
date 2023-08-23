@@ -10,33 +10,21 @@
     color: #412420;
 }
 li { list-style: none; }
-body { 
-    height: fit-content;
-    background-color: #F9F9F9;
-}
+body { height: fit-content; background-color: #F9F9F9; }
 
-/* PRESET */
-.body-text {
-    font-family: "Helvetica Neue", sans-serif; 
-    font-weight: 400;
-}
-
-.bold {
-    font-family: "Helvetica Neue", sans-serif; 
-    font-weight: 600;
-}
-
-.underline {
-    text-decoration: underline;
-}
-
+/* STYLES */
+.body-text { font-family: "Helvetica Neue", sans-serif; font-weight: 400; }
+.bold { font-family: "Helvetica Neue", sans-serif; font-weight: 600; }
+.underline { text-decoration: underline; }
 .outline {
     width: fit-content;
     padding: 4px 8px;
     border: solid 1px #412420;
     border-radius: 8px;
 }
+.white { color:#F9F9F9 }
 
+/* COMPONENTS */
 .button {
     width: fit-content;
     padding: 8px 12px 8px 16px;
@@ -45,7 +33,6 @@ body {
     background-color: #412420;
     text-decoration: none;
 }
-
 .button:hover {
     background-color: #412420ab;
     -webkit-transition: all 0.2s ease;
@@ -61,6 +48,38 @@ body {
     opacity: 0.3;
 }
 
+
+.image-text {
+    width: 84vw;
+    height: fit-content;
+    padding: 120px 0px;
+    display: grid;
+    grid-template-columns: 48% 48%;
+    column-gap: 4%;
+    align-items: center;
+}
+
+.image-text > img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    border: 1px solid #412420;
+}
+
+.center-text {
+    width: 84%;
+}
+
+.image-bg {
+    margin: 120px 0px;
+    width: 100%;
+    height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* FORMAT */
 .content {
     position: absolute;
     top: 0;
@@ -102,23 +121,6 @@ body {
     text-align: left;
 }
 
-.image-text {
-    width: 84vw;
-    height: fit-content;
-    padding: 120px 0px;
-    display: grid;
-    grid-template-columns: 48% 48%;
-    column-gap: 4%;
-    align-items: center;
-}
-
-.image-text > img {
-    width: 100%;
-    height: auto;
-    border-radius: 16px;
-    border: 1px solid #412420;
-}
-
 /* JS ANIMATION CLASSES */
 .js-appear {
     opacity: 0;
@@ -128,11 +130,9 @@ body {
     -o-transition: all 1s ease;
     transition: all 1s ease;
 }
-
 .js-appeared { opacity: 1; margin-top: 0px; }
 
 .js-highlight { width: fit-content; }
-
 .js-highlighted {
     -webkit-animation: highlight 1.5s 1 normal forwards;
             animation: highlight 1.5s 1 normal forwards;
@@ -142,7 +142,7 @@ body {
     background-position: 100% 0;
 }
 
-/* BG GRID PATTERN */
+/* BG PATTERN */
 .bg {
     background-size: 40px 40px;
     background-image:
@@ -198,7 +198,7 @@ nav {
 
 /* MASTHEAD */
 #whiteboard {
-    z-index: 2;
+    z-index: 1;
     width: 100vw;
     height: 100vh;
     position: absolute;
@@ -207,8 +207,12 @@ nav {
     justify-content: flex-end;
 }
 
+canvas {
+   width: 100%;
+   height: 100%;
+} 
+
 #masthead {
-    z-index: 1;
     top: 0px;
     width: 100vw;
     height: 100vh;
@@ -217,11 +221,18 @@ nav {
 }
 
 .intro {
+    z-index: 2;
     width: fit-content;
     margin-left: 8%;
     display: flex;
     flex-direction: column;
     gap: 24px;
+    user-select: none;
+    pointer-events: none;
+}
+
+.intro-2 {
+    margin-top: 10%;
 }
 
 .title { 
@@ -233,12 +244,10 @@ nav {
 }
 
 #masthead-button {
-    z-index: 3;
-    position: absolute;
     margin-top: 24px;
     width: fit-content;
-    margin-left: 8%;
     font-size: 24px;
+    pointer-events: auto;
 }
 
 @-webkit-keyframes highlight {
@@ -253,10 +262,16 @@ nav {
   }
 }
 
+canvas {
+    z-index: 2;
+}
+
 .selector {
+    z-index: 3;
     width: fit-content;
     height: fit-content;
-    margin-right: 8%;
+    position: absolute;
+    right: 8%;
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -264,7 +279,8 @@ nav {
 
 .selector-item { width: 40px; height: 40px; }
 
-.color { border: 1px solid #412420; border-radius: 22px; }
+.color { border: 1px solid #412420; border-radius: 22px; cursor: pointer; }
+.color:hover { border: 2px solid #412420 }
 
 #yellow { background-color: #FEFFBC; }
 #green { background-color: #C5FAB3; }
@@ -345,6 +361,7 @@ nav {
     gap: 12px;
 }
 
+/* LOOP */
 .loop {
     width: 100%;
     overflow: hidden;
@@ -373,7 +390,6 @@ nav {
 }
 
 /* FOOTER */
-
 footer {
     width: 90%;
     height: 100px;

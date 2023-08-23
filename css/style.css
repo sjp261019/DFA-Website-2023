@@ -114,7 +114,7 @@ body {
 
 .image-text > img {
     width: 100%;
-    height: fit-content;
+    height: auto;
     border-radius: 16px;
     border: 1px solid #412420;
 }

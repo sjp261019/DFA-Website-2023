@@ -104,6 +104,7 @@ body {
 
 .image-text {
     width: 84vw;
+    height: fit-content;
     padding: 120px 0px;
     display: grid;
     grid-template-columns: 48% 48%;

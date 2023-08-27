@@ -125,6 +125,10 @@ $(document).ready(function(){
         $(".eicon-pen").css("background-image", 'url("'+imageUrl+'")');
     });
 
+    window.addEventListener("load", () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    });
+
     canvas.addEventListener("mousedown", startDraw);
     canvas.addEventListener("mousemove", drawing);
     canvas.addEventListener("mouseup", () => isDrawing = false);

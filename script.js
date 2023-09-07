@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    /* NAV MINIMIZE ON SCROLL */
+    // NAV MINIMIZE ON SCROLL
     const handleNavMinimization = () => {
         if ($(document).scrollTop() > 0) {
             $("nav").removeClass("nav-1");
@@ -14,7 +14,7 @@ $(document).ready(function(){
     const scrollElements = document.querySelectorAll(".js-appear");
     const scrollPercentage = 0.8;
 
-    /* RETURNS TRUE IF ELEMENT'S POSITION IS ABOVE THE PERCENTAGE PARAMETER */
+    // RETURNS TRUE IF ELEMENT'S POSITION IS ABOVE THE PERCENTAGE PARAMETER
     const elementInView = (el, percentage) => {
         const elementTop = el.getBoundingClientRect().top;
         return (
@@ -22,7 +22,7 @@ $(document).ready(function(){
         );
     };
 
-    /* ELEMENT APPEAR ON SCROLL */
+    // ELEMENT APPEAR ON SCROLL
     const handleAppearAnimation = () => {
         scrollElements.forEach(el => {
             if (elementInView(el, scrollPercentage)) {
@@ -33,7 +33,7 @@ $(document).ready(function(){
         })
     };
 
-    /* TEXT HIGHLIGHT ON SCROLL */
+    // TEXT HIGHLIGHT ON SCROLL
     const highlightElements = document.querySelectorAll(".js-highlight");
     const handleScrollHighlightAnimation = () => {
         highlightElements.forEach(el => {
@@ -45,7 +45,7 @@ $(document).ready(function(){
             })
     }
 
-    /* SCROLL EVENT LISTENER */
+    // SCROLL EVENT LISTENER
     window.addEventListener('scroll', () => {
         handleNavMinimization();
         handleAppearAnimation();
@@ -58,7 +58,7 @@ $(document).ready(function(){
     const loopWidth = loopCount*loopImgWidth;   
     $(".loop ul").css("width", loopWidth); 
     
-    /* LOOP ANIMATE */
+    // LOOP ANIMATE
     setInterval(function(){
         $(".loop ul").animate({"margin-left":-loopWidth}, 2000, "linear", function(){
             $(".loop ul").find("li:first-child").insertAfter($(".loop ul").find("li:last-child"));
@@ -66,21 +66,39 @@ $(document).ready(function(){
         });
     });
 
+    // SLIDER SETUP
+    var imgCount = $(".slides ul").length;  
+    var imgWidth = $(".slides ul li").width(); 
+    var sliderWidth = imgCount*imgWidth;   
+    $(".slides ul").css("width", sliderWidth);    
+    
+    // SLIDER ANIMATE
+    setInterval(function(){
+        $(".slides ul").animate({"margin-left":-imgWidth}, 3000, "easeInOutExpo", function(){
+            $(".slides ul").delay(50).find("li:first-child").insertAfter($(".slides ul").find("li:last-child"));
+            $(".slides ul").delay(100).css({"margin-left":"0px"});
+        });
+    }, 5000);
+
+    // DRAWING SETUP
     const canvas = document.querySelector("canvas"),
     ctx = canvas.getContext("2d");
     let isDrawing = false;
     let color = '#D9D9D9';
 
+    // SET CANVAS ON LOAD
     window.addEventListener("load", () => {
         canvas.width = canvas.offsetWidth;
         canvas.height = canvas.offsetHeight;
     });
 
+    // BEGIN NEW PATH
     const startDraw = () => {
         isDrawing = true;
-        ctx.beginPath(); // begin new path
+        ctx.beginPath();
     }
 
+    // BRUSH SETUP
     const drawing = (e) => {
         if(!isDrawing) return; 
         ctx.lineTo(e.offsetX, e.offsetY); // create line according to mouse pointer
@@ -89,7 +107,7 @@ $(document).ready(function(){
         ctx.lineWidth = 20;
     }   
 
-    /* CHANGE COLOR ON CLICK */
+    // CHANGE COLOR ON CLICK
     $(".color").on("click", function() {
         const id = this.id
         let imageUrl = ''
@@ -125,6 +143,7 @@ $(document).ready(function(){
         $(".eicon-pen").css("background-image", 'url("'+imageUrl+'")');
     });
 
+    // CLEAR CANVAS ON LOAD
     window.addEventListener("load", () => {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
     });
